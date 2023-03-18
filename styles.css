@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+:root {
+	--primary: #000000;
+	--secondary: #333333;
+	--accent: #EEEEEE;
+	--tiles-width: 6;
+	--tiles-height: 3;
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	/* Photo by Aleksandar Pasaric: https://www.pexels.com/photo/dark-starry-sky-1694000/ */
+	background-image: url("images/misc/background.jpg");
+	background-size: 100%;
+	background-position: center;
+	background-color: var(--primary);
+}
+
+/* Search Bar */
+form {
+	background-color: var(--secondary);
+	width: 60vw;
+	height: 8vh;
+	border-radius: 1vw 1vw;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 8vh auto;
+}
+
+input {
+	all: unset;
+	font: 4vh 'Quicksand';
+	color: var(--accent);
+	height: 100%;
+	width: 100%;
+	padding-top: 1.6vh;
+	padding-bottom: 2.4vh;
+	padding-left: 2vh;
+	padding-right: 2vh;
+}
+
+::placeholder {
+	color: var(--accent);
+	opacity: 0.7;
+}
+
+button {
+	all: unset;
+	cursor: pointer;
+	width: 10vh;
+	height: 10vh;
+}
+
+svg {
+	color: var(--accent);
+	fill: currentColor;
+	width: 5vh;
+	height: 5vh;
+	padding: 2.5vh 2.5vh;
+}
+
+/* Tiles */
+.tiles {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 6vh auto;
+	min-height: 70vh;
+	max-height: 70vh;
+	min-width: calc((75vh - 5vh * var(--tiles-height)) / var(--tiles-height) * var(--tiles-width) + 5vh * (var(--tiles-width) - 1));
+	max-width: calc((75vh - 5vh * var(--tiles-height)) / var(--tiles-height) * var(--tiles-width) + 5vh * (var(--tiles-width) - 1));
+	gap: 5vh 5vh;
+}
+
+.tile {
+	background-color: var(--secondary);
+	width: calc((60vh - 4vh * var(--tiles-height)) / var(--tiles-height));
+	height: calc((60vh - 4vh * var(--tiles-height)) / var(--tiles-height));
+	border-radius: calc((6.81vh - 0.45vh * var(--tiles-height)) / var(--tiles-height));;
+	padding: calc((7.5vh - 0.5vh * var(--tiles-height)) / var(--tiles-height));
+	transition: transform 0.5s ease;
+}
+
+.tile:hover {
+	transform: scale(1.1);
+}
+
+.tile img {
+	width: 100%;
+	/*
+	This filter code was generated using this codepen: https://codepen.io/sosuke/pen/Pjoqqp
+	To adjust it for a new accent to compensate for the white images, change invert to be 100% - invert
+	For example, invert(99%) -> invert(1%)
+	*/
+	filter: invert(1%) sepia(1%) saturate(10%) hue-rotate(142deg) brightness(114%) contrast(87%);
+}
