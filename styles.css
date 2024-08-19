@@ -3,6 +3,7 @@
 :root {
 	--primary: #000000;
 	--secondary: #333333;
+	--tertiary: #444444;
 	--accent: #EEEEEE;
 	--tiles-width: 6;
 	--tiles-height: 3;
@@ -62,6 +63,41 @@ svg {
 	padding: 2.5vh 2.5vh;
 }
 
+/* Dropdown */
+.dropdown {
+	position: relative;
+	display: grid;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	width: 100%;
+	align-self: center;
+	background-color: var(--secondary);
+	opacity: 90%;
+	z-index: 1;
+}
+
+.dropdown-content a {
+	font-family: 'Quicksand', 'Helvetica', sans-serif;
+	font-size: 2vh;
+	font-weight: bold;
+	text-align: center;
+	color: var(--accent);
+	padding: 6px 8px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: var(--tertiary);
+}
+
+.dropdown:hover .dropdown-content {
+	display: inline-block;
+}
+
 /* Tiles */
 .tiles {
 	display: flex;
@@ -79,12 +115,16 @@ svg {
 	background-color: var(--secondary);
 	width: calc((60vh - 4vh * var(--tiles-height)) / var(--tiles-height));
 	height: calc((60vh - 4vh * var(--tiles-height)) / var(--tiles-height));
-	border-radius: calc((6.81vh - 0.45vh * var(--tiles-height)) / var(--tiles-height));;
+	border-radius: calc((6.81vh - 0.45vh * var(--tiles-height)) / var(--tiles-height));
 	padding: calc((7.5vh - 0.5vh * var(--tiles-height)) / var(--tiles-height));
 	transition: transform 0.5s ease;
 }
 
 .tile:hover {
+	transform: scale(1.1);
+}
+
+.dropdown:hover .tile {
 	transform: scale(1.1);
 }
 
